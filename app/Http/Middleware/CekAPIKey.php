@@ -17,7 +17,7 @@ class CekAPIKey
     public function handle(Request $request, Closure $next)
     {
         $apikey = $request->header('apikey');
-        if ($apikey != 'tes') {
+        if ($apikey != 'ww') {
             return response()->json([
                 'message' => 'API Key Invalid'
             ], 401);

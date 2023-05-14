@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\LoginModel;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -21,7 +20,6 @@ class LoginController extends Controller
                 'pesan' => "Nip $nip pengguna tidak ada"
             ], 404);
         }elseif (Hash::check($password,$hasil->password)) {
-            $hasil->token = Str::random(16);
             $hasil->save();
             return response()->json([
                 'data' => $hasil
@@ -34,13 +32,12 @@ class LoginController extends Controller
     }
     public function logout()
     {
-        $id = request()->user()->id;
-        $p = LoginModel::query()->where('id',$id)->first();
+        $id = request()->user()->nip;
+        $p = LoginModel::query()->where('nip',$id)->first();
 
         if ($p != null) {
-            $p->token = null;
             $p->save();
-            return response()->json(['data'=>1]);
+            return response()->json(['nip'=>1]);
         }else {
             return response()->json([
                 'pesan' => 'logout tidak berhasil, pengguna tidak tersedia'

@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\UserModel;
+use App\Models\LoginModel;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -18,9 +18,12 @@ class CekUser
     public function handle(Request $request, Closure $next)
     {
         $userid = $request->header('userid');
-        $user = UserModel::query()->where([
-            'id' => $userid
-            
+        $nip = $request->header('nip');
+        
+        $user = LoginModel::query()
+        ->where([
+            'id' => $userid,            
+            'nip' => $nip,            
         ])->first();
         if ($user == null) {
             return response()->json([

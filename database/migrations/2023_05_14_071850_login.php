@@ -14,8 +14,11 @@ class Login extends Migration
     public function up()
     {
         Schema::create('login', function (Blueprint $bp) {
-            $bp->bigIncrements('nip');
+            $bp->id();
+            $bp->unsignedBigInteger('nip');
             $bp->string('password')->nullable(false);
+            $bp->unique('nip');
+
 
            
         });

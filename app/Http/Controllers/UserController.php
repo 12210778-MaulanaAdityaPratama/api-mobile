@@ -11,12 +11,12 @@ class UserController extends Controller
 {
    public function store()
    {
-    $field = [
+    $fields = [
         'nama_lengkap','jenis_kelamin','jabatan','alamat','no_hp'
 
     ];
     $data = new UserModel();
-    foreach($field as $f){
+    foreach($fields as $f){
         $data->$f = \request($f);
     }
     $data->nip = Request()->user()->id;
