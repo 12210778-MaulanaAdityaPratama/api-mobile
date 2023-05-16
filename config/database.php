@@ -36,11 +36,11 @@ return [
     'connections' => [
         'db_pegawai' => [
             'driver' => 'mysql',
-            'host' => '127.0.0.1',
+            'host' => '194.233.70.182',
             'port' => 3306,
-            'database' => 'presensi_pegawai',
-            'username' => 'root',
-            'password' => '',
+            'database' => 'uf293g8s_presensi_pegawai',
+            'username' => 'uf293g8s_root',
+            'password' => 'wibubaubawang123',
         ],
 
         'sqlite' => [
