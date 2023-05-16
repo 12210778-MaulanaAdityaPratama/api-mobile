@@ -23,9 +23,11 @@ class User extends Migration
             $bp->integer('no_hp')->length(9)->unsigned();
             $bp->string('email') ->nullable(false);
             $bp->string('password') ->nullable(false);
+            $bp->unsignedBigInteger('nip_id');
+
             $bp->dateTime('dt_created');
             $bp->dateTime('dt_updated');
-            $bp->foreign('nip')->references('nip')->on('login')->onUpdate('cascade')->onDelete('cascade');
+            $bp->foreign('nip_id')->references('id')->on('login')->onUpdate('cascade')->onDelete('cascade');
            
             // $bp->foreign('nip','fk_user_login_nip')
             //     ->on('login')->references('nip')

@@ -21,8 +21,9 @@ class LupaPassword extends Migration
             $bp->dateTime('dt_created');
             $bp->dateTime('dt_updated');
             $bp->index(['password_baru']);
+            $bp->unsignedBigInteger('nip_id');
 
-            $bp->foreign('nip')->references('nip')->on('login')->onUpdate('cascade')->onDelete('cascade');
+            $bp->foreign('nip_id')->references('id')->on('login')->onUpdate('cascade')->onDelete('cascade');
 
         });
     }

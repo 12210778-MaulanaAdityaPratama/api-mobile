@@ -18,7 +18,8 @@ class LupaPasswordSeeder extends Seeder
         LupaPasswordModel::query()->create([
             'nip' => 12210778,
             'email' => 'aditya@gmail.com',
-            'password_baru' => Hash::make('1234')
+            'password_baru' => Hash::make('1234'),
+            'nip_id' => 3
         ]);
     }
 }

@@ -24,7 +24,8 @@ class UserSeeder extends Seeder
             'alamat' => 'rasau jaya',
             'no_hp' => 2321,
             'email' => 'aditya@gmail.com',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
+            'nip_id' => 3
         ]);
     }
 }
